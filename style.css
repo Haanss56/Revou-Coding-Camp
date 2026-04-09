@@ -229,3 +229,190 @@ p {
   border-radius: var(--border-radius-sm);
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
+
+/* ============================================================
+   Desktop Navbar Styles — @media (min-width: 768px) (Req 6.2, 6.3)
+   ============================================================ */
+@media (min-width: 768px) {
+  /* Show nav-links horizontally and reset mobile positioning */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  /* Override .active — not needed on desktop */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Reset link styles for horizontal layout */
+  .nav-links li a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: none;
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Hide hamburger on desktop */
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Hero Section (Req 3.4, 3.5)
+   ============================================================ */
+
+/* Mobile-first: single column, centered content */
+#hero {
+  min-height: 100vh; /* Req 3.4 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background-color: var(--color-bg-alt);
+  gap: var(--spacing-lg);
+}
+
+#hero h1 {
+  font-size: var(--font-size-3xl); /* 32px on mobile */
+  color: var(--color-text);
+  max-width: 600px;
+}
+
+#hero p {
+  font-size: var(--font-size-base); /* 16px on mobile */
+  color: var(--color-text-muted);
+  max-width: 480px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.cta-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Desktop: larger text (Req 3.5, 6.2) */
+@media (min-width: 768px) {
+  #hero h1 {
+    font-size: var(--font-size-4xl); /* 40px on desktop */
+  }
+
+  #hero p {
+    font-size: var(--font-size-lg); /* 18px on desktop */
+  }
+}
+
+/* ============================================================
+   Feature Section (Req 4.2, 4.3)
+   ============================================================ */
+
+/* Mobile-first: single column layout */
+#features {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+#features h2 {
+  margin-bottom: var(--spacing-2xl);
+  color: var(--color-text);
+}
+
+/* Single column by default (mobile) — Req 4.3 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+}
+
+/* Feature card — consistent styling */
+.feature-card {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  text-align: center;
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1;
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.feature-card p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+/* Desktop: 3-column grid — Req 4.2 */
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================================
+   Footer (Req 5.3)
+   ============================================================ */
+#footer {
+  background-color: var(--color-footer-bg); /* berbeda dari konten utama */
+  color: var(--color-text-inverse);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+#footer p {
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-sm);
+}
+
+#footer a {
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-sm);
+  text-decoration: underline;
+  transition: opacity var(--transition-fast);
+}
+
+#footer a:hover {
+  opacity: 0.75;
+}
